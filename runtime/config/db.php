@@ -1,17 +1,16 @@
 <?php
-//默认配置
-return [
-
-
-    'driver' => 'mysql',
-    'mysql'  => [
-        'host'     => 'rm-2ze0ouuy1226r7166.mysql.rds.aliyuncs.com',
-        'port'     => '3306',
-        'name'     => 'apidoc',
-        'user'     => 'juzitest',
-        'prefix'   => 'doc_',
-        'password' => 'tnFin7yyhFaFzA',
-        'charset'  => 'UTF8',
-    ],
-
-];
+return
+array (
+  'driver' => 'mysql',
+  'mysql' => 
+  array (
+    'host' => 'localhost',
+    'port' => '3306',
+    'user' => 'root',
+    'password' => '123456',
+    'name' => 'apidoc',
+    'prefix' => 'doc_',
+    'charset' => 'UTF8',
+  ),
+)
+?>
