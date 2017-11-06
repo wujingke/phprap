@@ -245,5 +245,5 @@
 ## 捐献
 - 如果觉得还不错，请作者喝杯咖啡吧，开源不易，你的支持是我前进的动力！
 
-![微信](http://www.gouguoyin.cn/template/default/images/weixin_code.png)
-![支付宝](http://www.gouguoyin.cn/template/default/images/alipay_code.png)
+![微信](http://gouguoyin.qiniudn.com/wepay.jpg)
+![支付宝](http://gouguoyin.qiniudn.com/alipay.jpg)
