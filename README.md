@@ -70,9 +70,8 @@
     
     
     ```php
-    RewriteRule (.*)$ /index\.php\?s=$1 [I]
+    RewriteRule (.*)$ /index\.php\?r=$1 [I]
     ```
-    
    
     在IIS的高版本下面可以配置web.Config，在中间添加rewrite节点：
     
