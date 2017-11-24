@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Information -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="phprap,apidoc,api文档管理">
+    <meta name="description" content="PHPRAP，是一个PHP轻量级开源API接口文档管理系统，致力于减少前后端沟通成本，提高团队协作开发效率，打造PHP版的RAP。">
+    <title>常见问题——HPRAP打造PHP版RAP接口文档管理系统</title>
+    <!-- Fonts -->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link href="../css/app.css" rel="stylesheet" />
+
+</head>
+<body class="with-navbar">
+<div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    </nav>
+    <!-- Main Content -->
+    <docs>
+        <div class="spark-screen container">
+            <div class="row">
+                <!-- Tabs -->
+                <div class="col-md-4 docs-sidebar">
+                </div>
+                <!-- Content -->
+                <div class="col-md-8 docs-content">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h1>常见问题</h1>
+                            <a name="faq"></a>
+
+                            <ul>
+                                <li><a href="#faq1">安装时报错General error: 1366 Incorrect integer value: '' for column 'id' at row 1 </a></li>
+                                <li><a href="#faq2">虚拟主机不能绑定域名到public目录怎么办?</a></li>
+                                <li><a href="#faq3">NGINX环境下安装时不断刷新页面</a></li>
+                                <li><a href="#faq4">如何手动安装PHPRAP?</a></li>
+                                <li><a href="#faq5">如何查看错误日志?</a></li>
+                                <li><a href="#faq6">如何关闭异常提示页面?</a></li>
+                            </ul>
+
+                            <p><a name="faq1"></a></p>
+                            <h3>安装时报错General error: 1366 Incorrect integer value: '' for column 'id' at row 1</h3>
+                            <h5>问题分析</h5>
+                            <p>这种问题在5.x版本之后开始出现，就是int整形不可以在插入为空的时候会报这个错误，官方解释说：得知新版本mysql对空值插入有"bug"，要在安装mysql的时候去除默认勾选的enable strict SQL mode</p>
+                            <h5>解决方法</h5>
+                            <p>更改mysql中的配置my.ini，将<code>sql-mode="STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER"</code>修改为
+                                <code>sql-mode="NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"</code>
+                            </p>
+
+                            <p><a name="faq2"></a></p>
+                            <h3>虚拟主机不能绑定域名到public目录怎么办?</h3>
+                            <p>
+                            <ul>
+                                <li>打开<code>public/index.php</code>文件，将<code>define('ROOT_PATH', __DIR__ . '/..')</code>修改为<code>define('ROOT_PATH', __DIR__ )</code>，将<code>define('WEB_PATH', ROOT_PATH . '/public')</code>修改为<code>define('WEB_PATH', ROOT_PATH)</code></li>
+                                <li>将<code>public</code>目录里的文件全部移到根目录下(即<code>public</code>的上级目录)</li>
+                            </ul>
+                            </p>
+
+                            <p><a name="faq3"></a></p>
+                            <h3>NGINX环境下安装时不断刷新页面</h3>
+                            <h5>问题分析</h5>
+                            <p>Nginx一般都是配合fpm来使用的，如果使用rewrite的时候会把所有的文件都重定向然后发送给php-fpm，造成控制器路由无效，一直重定向到安装控制器</p>
+                            <h5>解决方法</h5>
+                            <p>将nginx的配置由rewrite改为try_files
+                            <pre><code class="hljs bash"><span class="hljs-string">location / {
+   try_files $uri $uri/ /index.php?r=$uri&$args
+}
+</span></code></pre>
+                            </p>
+
+                            <p><a name="faq4"></a></p>
+                            <h3>如何手动安装PHPRAP?</h3>
+                            <p>如果因不可预知的原因造成无法自动安装，可考虑手动安装。方法如下：</p>
+                            <ul>
+                                <li>在<code>runtime</code>目录下创建<code>install.lock</code>文件(文件里面什么都不需要写)</li>
+                                <li>导入<code>install/data/db.sql</code>文件</li>
+                                <li>修改数据库配置文件<code>runtime/config/db.php</code>
+                                    <pre><code class="hljs bash"><span class="hljs-string">'driver' => 'mysql',
+'mysql'  => [
+'host'     => '数据库地址或ip',
+'port'     => '3306',
+'name'     => '数据库名',
+'user'     => '用户名',
+'prefix'   => '表前缀，没有可留空',
+'password' => '密码',
+'charset'  => 'UTF8',
+],
+</span></code></pre>
+                                </li>
+
+                            </ul>
+
+                            <p><a name="faq5"></a></p>
+                            <h3>如何查看错误日志?</h3>
+                            <p>错误日志位于<code>runtime/log</code>目录下，以年/月/日目录层级存放，日志内容如下
+                            <pre><code class="hljs bash"><span class="hljs-string">【error】2017-11-18 21:07:31 --> message:syntax error, unexpected '}' file:/home/gouguoyin/demo/application/home/controller/test.php url:http://demo.gouguoyin.cn/test
+</span></code></pre>
+                            </p>
+
+                            <p><a name="faq6"></a></p>
+                            <h3>如何关闭异常提示页面?</h3>
+                            <p>
+                                打开入口文件<code>index.php</code>(默认在<code>public</code>目录下)，将<code>define('APP_DEBUG', true)</code>改为<code>define('APP_DEBUG', false)</code>
+                            </p>
+
+                            <blockquote>
+                                <p><strong>Note:</strong> 如果以上问题仍不能解决您的问题，您还可以通过 <a target="_blank" href="https://gitee.com/gouguoyin/phprap/issues">Issue</a> 渠道提交您的问题 </p>
+                            </blockquote>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </docs>
+    <!-- JavaScript -->
+
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script src="../js/app.js"></script>
+<script>
+    $(function () {
+        // 高亮显示当前选中菜单
+        $("ul.nav a").each(function(){
+
+            var url = window.location;
+            var href = $(this)[0].href;
+
+            if(url.href.indexOf(href) == 0 || href == url){
+                $(this).parent().addClass("active");
+            }
+
+        });
+
+    });
+</script>
+</body>
+</html>

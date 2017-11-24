@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)https://spark.laravel.com/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <meta name="viewport" content="width=device-width ,  user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="phprap,apidoc,api文档管理">
+    <meta name="description" content="PHPRAP，是一个PHP轻量级开源API接口文档管理系统，致力于减少前后端沟通成本，提高团队协作开发效率，打造PHP版的RAP。">
+
+    <title>PHPRAP——打造PHP版RAP接口文档管理系统</title>
+
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+    <link href="./css/index.css" rel="stylesheet" type="text/css">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?89e628e9f7efd1ce3ad0290d5c92b25a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <style>
+        .pro_name a{color: #4183c4;}
+        .osc_git_title{background-color: #fff;}
+        .osc_git_box{background-color: #fff;}
+        .osc_git_box{border-color: #E3E9ED;}
+        .osc_git_info{color: #666;}
+        .osc_git_main a{color: #9B9B9B;}
+        .osc_git_footer {display: none;}
+        .github-corner {z-index: 999}
+    </style>
+
+</head>
+<body>
+
+    <a href="https://github.com/gouguoyin/phprap" class="github-corner" target="_blank" title="亲，给点个赞呗">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill: rgba(21, 21, 19, 0.53); color:#fff; position: absolute; top: 0; border: 0; right: 0;">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+    </a>
+
+    <section id="header">
+
+        <div class="container">
+            <a class="logo" href="/"></a>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="/"><strong>主页</strong></a></li>
+                    <li><a href="/doc/index.html"><strong>文档</strong></a></li>
+                    <li><a href="https://github.com/gouguoyin/phprap/issues" target="_blank"><strong>反馈</strong></a></li>
+
+                    <li><a href="https://github.com/gouguoyin/phprap" target="_blank"><strong>GITHUB</strong></a></li>
+                    <li><a href="https://gitee.com/gouguoyin/phprap" target="_blank"><strong>码云</strong></a></li>
+                </ul>
+            </nav>
+
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-md-push-6">
+                    <div class="hero">
+
+<!--                        <script src='//gitee.com/gouguoyin/phprap/widget_preview'></script>-->
+                        <img class="hero-illustration" src="./image/banner4.png" width="460" height="319">
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-md-pull-6">
+                    <div class="headline">
+                        <!-- <h1>Shipping has never been easier.</h1> -->
+                        <p class="lead">PHPRAP，是一个PHP轻量级开源API接口文档管理系统，致力于减少前后端沟通成本，提高团队协作开发效率，打造PHP版的RAP。</p>
+                    </div>
+
+                    <div class="btn-box">
+                        <a class="option-btn user-btn col-sm-12 col-md-4" href="http://apidoc.gouguoyin.cn/" target="_blank">
+                            <div ><strong><i class="fa fa-desktop"></i> 在线演示</strong></div>
+                        </a>
+
+                        <a class="option-btn download-btn col-sm-12 col-md-4 js_download" href="javascript:void(0);" target="_blank">
+                            <div><strong><i class="fa fa-download"></i> 下载源码</strong></div>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="white-fade"></div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6">
+                    <h3>
+                        <span class="fa fa-database"></span>
+                        部署简单
+                    </h3>
+                    <p>提供傻瓜式在线安装程序，按照安装步骤，只需填写少量信息即可快速完成安装部署，开箱即用。</p>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h3>
+                        <span class="fa fa-wrench"></span>
+                        操作简单
+                    </h3>
+                    <p>基于bootstrap搭建，完美适配PC和移动端，和淘宝RAP高度一致的操作流程，给力的用户体验，让您一分钟上手。</p>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <h3>
+                        <span class="fa fa-location-arrow"></span>
+
+                        MOCK服务
+                    </h3>
+                    <p>
+                        根据接口文档自动生成模拟数据，让前端在脱离后端的情况下独立进行开发测试，提高团队协作开发效率。
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h3>
+                        <span class="fa fa-vine"></span>
+                        在线调试
+                    </h3>
+                    <p>
+                        支持在线对接口进行调试，默认填充已定义好的header和请求参数，再也不用在postman中手动添加参数来调试接口。
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-sm-6 ">
+                    <h3>
+                        <span class="fa fa-key"></span>
+                        权限控制
+                    </h3>
+                    <p>
+                        完善的权限控制系统，可以分别控制项目的编辑、删除、转让权限和模块接口的添加、编辑、删除权限。</p>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <h3>
+                        <span class="fa fa-download"></span>
+                        一键导出
+                    </h3>
+                    <p>
+                        支持将项目导出为html文件，导出文件包含项目简介、所有接口、header参数、请求参数和响应参数，方便您离线浏览！ </p>
+                </div>
+
+            </div>
+
+        </div>
+    
+</section>
+
+    <section class="introduce odd">
+        <div class="container">
+            <div class="introduce-box">
+                <div class="row">
+
+
+                    <div class="col-md-6 introduce-content">
+                        <h2>
+                            安装程序
+                        </h2>
+
+                        <p>
+                            提供傻瓜式在线安装程序，按照安装步骤，只需填写少量信息即可快速完成安装部署
+                        </p>
+                        <ul>
+                            <li>安装步骤一：环境检测 </li>
+                            <li>安装步骤二：数据库配置</li>
+                            <li>安装步骤三：管理员配置</li>
+                            <li>安装步骤四：安装完成</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="screenshot">
+                            <img class="dashboard-screen" src="./image/index/install.gif">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="introduce even">
+        <div class="container">
+            <div class="introduce-box">
+                <div class="row">
+
+                    <div class="col-md-6 introduce-content">
+                        <h2>
+                            使用操作
+                        </h2>
+
+                        <p>
+                            常用操作演示，这是我们用到最多的操作
+                        </p>
+
+                        <ul>
+                            <li>搜索项目、加入项目、退出项目、添加项目、编辑项目、删除项目、转让项目、导出项目、项目成员、项目动态</li>
+                            <li>添加环境、编辑环境、删除环境</li>
+                            <li>添加模块、编辑模块、删除模块</li>
+                            <li>添加接口、编辑接口、删除接口、调试接口</li>
+                            <li>添加字段、编辑字段、删除字段</li>
+                            <li>个人设置、申请管理、登录历史</li>
+                        </ul>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="screenshot">
+                            <img class="dashboard-screen" src="./image/use.png">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="introduce odd">
+        <div class="container">
+            <div class="introduce-box">
+                <div class="row">
+                    <div class="col-md-6 introduce-content">
+                        <h2>
+                            MOCK服务
+                        </h2>
+
+                        <p>
+                            根据接口文档自动生成模拟数据，让前端在脱离后端的情况下独立进行开发测试，提高团队协作开发效率
+                        </p>
+                        <ul>
+                            <li>支持请求协议、请求方式和请求参数合法性校验</li>
+                            <li>根据接口文档自动生成模拟数据，支持复杂的生成逻辑</li>
+                            <li>通过随机数据，模拟各种场景，增加单元测试的真实性</li>
+                            <li>数据类型丰富，支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="screenshot">
+                            <img class="dashboard-screen" src="./image/mock.png">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="introduce even">
+        <div class="container">
+            <div class="introduce-box">
+                <div class="row">
+
+                    <div class="col-md-6 introduce-content">
+                        <h2>
+                            在线调试
+                        </h2>
+
+                        <p>
+                            支持在线对接口进行调试，默认填充已定义好的header和请求参数，再也不用在postman中手动添加参数来调试接口
+                        </p>
+                        <ul>
+                            <li>根据录入的header和请求参数规则，默认填充已定义好的header和请求参数，可新增、编辑和删除参数</li>
+                            <li>随意切换接口环境、请求地址和请求方式</li>
+                            <li>右侧面板时时展示http状态码、请求时间、响应结果和请求及响应header</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="screenshot">
+                            <img class="dashboard-screen" src="./image/index/debug.gif">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="introduce odd last-section">
+        <div class="container">
+            <div class="introduce-box">
+                <div class="row">
+                    <div class="col-md-6 introduce-content">
+                        <h2>
+                            后台管理
+                        </h2>
+
+                        <p>
+                            只有管理员才可以在右上角下拉菜单看到管理中心选项
+                        </p>
+                        <ul>
+                            <li>管理主页：数据统计、系统信息</li>
+                            <li>项目管理：转让、删除、查看</li>
+                            <li>成员管理：冻结用户、重置密码</li>
+                            <li>数据备份：备份、还原、删除</li>
+                            <li>登录历史、系统设置</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="screenshot">
+                            <img class="dashboard-screen" src="./image/index/manage.gif">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="footer">
+        <p class="footer-text">
+        Copyright ©2016-2017 PHPRAP版权所有 Powered By <a target="_blank" href="http://www.gouguoyin.cn/about.html">GouGuoyin</a>
+        </p>
+    </section>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
+
+    <script>
+        $('.js_download').on('click', function(event){
+            event.stopPropagation();
+            layer.msg('正在跳转下载页，亲，如果您觉得PHPRAP用的话，别忘了到Github或者码云上为我们点亮Start哦^_^ ', function(){
+                //关闭后的操作
+//                window.open("https://github.com/gouguoyin/phprap/releases");
+                window.location.href = 'https://github.com/gouguoyin/phprap/releases';
+            });
+        });
+    </script>
+</body>
+</html>

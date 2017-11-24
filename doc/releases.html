@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Meta Information -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="phprap,apidoc,api文档管理">
+    <meta name="description" content="PHPRAP，是一个PHP轻量级开源API接口文档管理系统，致力于减少前后端沟通成本，提高团队协作开发效率，打造PHP版的RAP。">
+    <title>更新日志-PHPRAP打造PHP版RAP接口文档管理系统</title>
+    <!-- Fonts -->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link href="../css/app.css" rel="stylesheet" />
+
+</head>
+<body class="with-navbar">
+<div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    </nav>
+
+    <!-- Main Content -->
+    <docs>
+        <div class="spark-screen container">
+            <div class="row">
+                <!-- Tabs -->
+                <div class="col-md-4 docs-sidebar">
+                </div>
+
+                <!-- Content -->
+                <div class="col-md-8 docs-content">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            <h1>更新日志</h1>
+
+                            <ul>
+                                <li><a href="#v1.0.6">v1.0.6</a></li>
+                                <li><a href="#v1.0.5">v1.0.5</a></li>
+                                <li><a href="#v1.0.4">v1.0.4</a></li>
+                                <li><a href="#v1.0.3">v1.0.3</a></li>
+                                <li><a href="#v1.0.2">v1.0.2</a></li>
+                                <li><a href="#v1.0.1">v1.0.1</a></li>
+                            </ul>
+
+                            <p><a name="v1.0.6"></a></p>
+                            <h2>v1.0.6 release20171124</h2>
+                            <h4>更新内容</h4>
+                            <ul>
+                                <li>【修复】修复因php7.1版本遗弃mcrypt扩展造成安装报错的BUG</li>
+                                <li>【修复】修复在PHP7.1下因缺少默认参数而报致命错误的BUG</li>
+                                <li>【修复】修复安装目录路径含有中文时安装界面不断刷新的BUG</li>
+                                <li>【修复】修复密码含有特殊字符时无法删除项目的BUG</li>
+                                <li>【修复】修复入口文件index.php里DS常量未定义报错的BUG</li>
+                                <li>【修复】修复安装第一步pdo扩展没安装时提示信息错误的BUG</li>
+                                <li>【修复】修复管理后台用户管理中当参与项目数为0时点击0跳转页面报错的BUG</li>
+                                <li>【优化】mysql的最低版本限制由5.4.0改为5.1.0</li>
+                            </ul>
+
+                            <p><a name="v1.0.5"></a></p>
+                            <h2>v1.0.5 release20171120</h2>
+                            <h4>更新内容</h4>
+                            <ul>
+                                <li>【修复】修复PHP7.1下报db()函数缺少默认参数的BUG</li>
+                                <li>【修复】修复未登录状态下注册页不断弹出修改默认密码的BUG</li>
+                                <li>【优化】核心框架里PUBLIC_PATH常量调整为WEB_PATH</li>
+                                <li>【优化】右上角下拉菜单‘修改资料’调整为‘个人设置’，‘意见反馈’调整为‘帮助文档’</li>
+                                <li>【优化】安装时默认数据库名调整为phprap</li>
+                                <li>【优化】管理后台系统设置去掉关闭网站及关闭时提示的设置</li>
+                                <li>【优化】注册成功后默认登录状态，并记录登录日志</li>
+                                <li>【新增】注册页面新增注册口令字段，注册口令可在管理后台配置</li>
+                                <li>【新增】管理主页新增常见问题模块</li>
+                                <li>【新增】导出的html页面新增header参数展示</li>
+                            </ul>
+
+                            <p><a name="v1.0.4"></a></p>
+                            <h2>v1.0.4 release20171116</h2>
+                            <h4>更新内容</h4>
+                            <ul>
+                                <li>【修复】修复添加项目环境域名时，描述有汉字时展示乱码的BUG</li>
+                                <li>【修复】修复添加项目时报sort字段不能为空的BUG</li>
+                                <li>【修复】修复删除接口后跳转错误的BUG</li>
+                                <li>【修复】修复mock类型为array时生成的mock数据错误的bug</li>
+                                <li>【优化】优化安装初始化db.sql文件，将doc_api表method字段类型由整形改为字符串，doc_project_log表新增user_email字段</li>
+                                <li>【优化】优化删除备份数据库操作，备份文件不存在也可以删除</li>
+                                <li>【优化】优化项目操作记录日志，新增对接口基础信息的操作记录</li>
+                                <li>【新增】接口新增header的录入、编辑和删除功能</li>
+                                <li>【新增】接口新增在线调试功能，可以在线模拟get、post、put请求</li>
+                                <li>【新增】添加响应字段mock规则时新增智能提示，输入关键字即可下拉返回所有支持的mock规则</li>
+                                <li>【新增】mock规则新增返回随机银行卡号规则</li>
+                                <li>【新增】核心类新增curl类，该类用于在线调试接口</li>
+                                <li>【新增】核心类reflect新增获取某个类下所有公共方法名的方法getMethods($class)，该方法用于添加响应字段mock规则时智能提示</li>
+                            </ul>
+
+                            <p><a name="v1.0.3"></a></p>
+                            <h2>v1.0.3 release20171108</h2>
+                            <h4>更新内容</h4>
+
+                            <ul>
+                                <li>【修复】修复安装步骤第一步conpile目录权限检测错误的BUG</li>
+                                <li>【修复】修复mock规则类型不存在时报错的BUG</li>
+                                <li>【修复】修复添加响应字段后tooltip提示无效的BUG</li>
+                                <li>【修复】修复管理后台导出数据库文件sql语句错误的BUG</li>
+                                <li>【修复】修复管理后台系统配置信息中如果有中文前端展示乱码的BUG</li>
+                                <li>【修复】修复接口详情页刷新mock数据时多次请求的BUG，并增加刷新频率限制</li>
+                                <li>【优化】添加响应字段时增加mock规则有效性判断</li>
+                                <li>【优化】优化安装程序，将安装锁文件由application/install/文件夹下移到runtime文件夹下</li>
+                                <li>【优化】优化install初始化数据库文件install/data/db.sql</li>
+                                <li>【新增】管理后台可配置是否开启ajax消息时时推送和推送时间间隔</li>
+                                <li>【新增】管理后台增加是否已安装检测，如果没有安装程序直接跳转到安装程序</li>
+                                <li>【新增】管理后台新增备份数据还原功能</li>
+                            </ul>
+
+                            <p><a name="v1.0.2"></a></p>
+                            <h2>v1.0.2 release20171106</h2>
+                            <h4>更新内容</h4>
+
+                            <ul>
+                                <li>【修复】修复在MySQL5.5版本下安装数据初始化sql文件db.sql里add_time和update_time字段类型为timedate造成的安装失败的BUG</li>
+                                <li>【修复】修复接口没有响应字段时，返回json示例报错的BUG</li>
+                                <li>【修复】修复后台项目管理页面点击项目标题提示项目不存在的BUG</li>
+                                <li>【优化】安装步骤二配置数据库信息页面默认填充本地数据库配置信息</li>
+                                <li>【优化】安装程序页面的上一步按钮由URL跳转改为javascript:history.go(-1)</li>
+                                <li>【新增】项目导出页新增create by 信息和mock请求地址</li>
+                                <li>【新增】MOCK规则新增随机图片和随机商品信息</li>
+                            </ul>
+
+                            <p><a name="v1.0.1"></a></p>
+                            <h2>v1.0.1 release20171105</h2>
+                            <h4>更新内容</h4>
+
+                            <ul>
+                                <li>【修复】修复在nginx服务器下访问报错的BUG</li>
+                                <li>【修复】修复PHP7版无法获取mysql版本号造成无法安装的BUG</li>
+                                <li>【优化】接口返回示例由手动填写优化为通过MOCK规则自动生成</li>
+                                <li>【新增】核心类增加mock服务类，模拟各种场景，增加单元测试的真实性;</li>
+                                <li>【新增】支持添加、修改字段后时时显示返回格式化的json示例</li>
+                                <li>【新增】根据接口文档自动生成MOCK模拟数据，支持复杂的生成逻辑;</li>
+                                <li>【新增】MOCK服务新增请求协议、请求方式和请求参数格式校验;</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </docs>
+    <!-- JavaScript -->
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script src="../js/app.js"></script>
+<script>
+    $(function () {
+        // 高亮显示当前选中菜单
+        $("ul.nav a").each(function(){
+
+            var url = window.location;
+            var href = $(this)[0].href;
+
+            if(url.href.indexOf(href) == 0 || href == url){
+                $(this).parent().addClass("active");
+            }
+
+        });
+
+    });
+</script>
+</body>
+</html>

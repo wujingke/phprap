@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Meta Information -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="phprap,apidoc,api文档管理">
+    <meta name="description" content="PHPRAP，是一个PHP轻量级开源API接口文档管理系统，致力于减少前后端沟通成本，提高团队协作开发效率，打造PHP版的RAP。">
+    <title>安装部署——PHPRAP打造PHP版RAP接口文档管理系统</title>
+    <!-- Fonts -->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link href="../css/app.css" rel="stylesheet" />
+    <!-- Scripts -->
+
+</head>
+<body class="with-navbar">
+<div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    </nav>
+
+    <!-- Main Content -->
+    <docs>
+        <div class="spark-screen container">
+            <div class="row">
+                <!-- Tabs -->
+                <div class="col-md-4 docs-sidebar">
+                </div>
+
+                <!-- Content -->
+                <div class="col-md-8 docs-content">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h1>部署安装</h1>
+                            <a name="install"></a>
+
+                            <ul>
+                                <li><a href="#step1">下载程序</a></li>
+                                <li><a href="#step2">绑定域名</a></li>
+                                <li><a href="#step3">设置目录权限</a></li>
+                                <li><a href="#step4">隐藏入口文件</a></li>
+                                <li><a href="#step5">运行安装程序</a></li>
+                            </ul>
+
+                            <p><a name="step1"></a></p>
+                            <h3>下载程序</h3>
+
+                            <h4>GITHUB</h4>
+                            <pre><code class="hljs coffeescript">git clone <span class="hljs-built_in">https://github.com/gouguoyin/phprap.git</span> -b 'stable'</code></pre>
+
+                            <h4>GITEE</h4>
+                            <pre><code class="hljs coffeescript">git clone <span class="hljs-built_in">https://gitee.com/gouguoyin/phprap.git</span> -b 'stable'</code></pre>
+
+                            <h4>源码</h4>
+                            <p>下载<a target="_blank" href="https://github.com/gouguoyin/phprap/archive/stable.zip">源码</a>，上传到服务器上后解压</p>
+
+                            <p><a name="step2"></a></p>
+                            <h3>绑定域名</h3>
+                            <p>将域名绑定到<code>public</code>目录上</p>
+
+                            <p><a name="step3"></a></p>
+                            <h3>设置目录权限</h3>
+                            <p><code>runtime</code>目录及子目录给予可读可写权限</p>
+
+                            <p><a name="step4"></a></p>
+                            <h3>隐藏入口文件index.php</h3>
+                            <h4>IIS</h4>
+                            <p>如果你的服务器环境支持<code>ISAPI_Rewrite</code>的话，可以配置<code>httpd.ini</code>文件，添加下面的内容：</p>
+                            <pre><code class="hljs coffeescript"><span class="hljs-string">RewriteRule (.*)$ /index\.php\?r=$1 [I]</span></code></pre>
+
+                            <h4>Apache</h4>
+                            <p><code>httpd.conf</code>配置文件中加载<code>mod_rewrite.so</code>模块</p>
+                            <p>将<code>AllowOverride None</code> 改为 <code>AllowOverride All</code></p>
+                            <p>把下面的内容保存为<code>.htaccess</code>文件放到应用入口文件的同级目录下，默认放在<code>public</code>目录下</p>
+                            <pre><code class="hljs coffeescript"><span class="hljs-string"><IfModule mod_rewrite.c>RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?r=/$1 [QSA,PT,L]
+</IfModule></span></code></pre>
+
+                            <h4>Nginx</h4>
+                            <p>如果是部署在根目录下，在<code>Nginx.conf</code>中配置转发规则</p>
+                            <pre><code class="hljs bash"><span class="hljs-string">location / {</span>
+    <span class="hljs-string">try_files $uri $uri/ /index.php?r=$uri&$args</span>
+}</code></pre>
+
+                            <p><a name="step5"></a></p>
+                            <h3>运行安装程序</h3>
+                            <p>打开浏览器，访问域名，会自动跳转到安装界面运行安装程序</p>
+                            <blockquote>
+                                <p><strong>Note:</strong> 如果要重新安装，请先删除 <code>runtime/install.lock</code>，否则会提示程序已安装</p>
+                            </blockquote>
+                            <h5>
+                                安装步骤一：环境检测
+                            </h5>
+                            <p><img src="../image/home/step1.png" alt="安装步骤一：环境检测"></p>
+
+                            <h5>安装步骤二：数据库配置</h5>
+                            <p><img src="../image/home/step2.png" alt="安装步骤二：数据库配置"></p>
+
+                            <h5>安装步骤三：管理员配置</h5>
+                            <p><img src="../image/home/step3.png" alt="安装步骤三：管理员配置"></p>
+
+                            <h5>安装步骤四：安装完成</h5>
+                            <p><img src="../image/home/step4.png" alt="安装步骤四：安装完成"></p>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </docs>
+    <!-- JavaScript -->
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script src="../js/app.js"></script>
+<script>
+    $(function () {
+        // 高亮显示当前选中菜单
+        $("ul.nav a").each(function(){
+
+            var url = window.location;
+            var href = $(this)[0].href;
+
+            if(url.href.indexOf(href) == 0 || href == url){
+                $(this).parent().addClass("active");
+            }
+
+        });
+
+    });
+</script>
+</body>
+</html>
