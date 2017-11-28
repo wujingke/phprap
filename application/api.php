@@ -207,9 +207,11 @@ class api {
 
     }
 
-    public static function get_method_list($method_id)
+    public static function get_method_list($method_id = 0)
     {
-
+        
+        
+        $method = array();
         $method[1] = 'GET';
         $method[2] = 'POST';
         $method[3] = 'PUT';
